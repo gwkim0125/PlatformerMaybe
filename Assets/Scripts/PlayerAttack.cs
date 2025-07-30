@@ -13,7 +13,7 @@ public class PlayerAttack : MonoBehaviour
     public int maxProjectiles = 3; // 한 화면에 존재할 수 있는 최대 발사체 수
 
     [Header("차지샷 설정")]
-    public float chargeTimeThreshold = 1.0f; // 차지샷으로 인정될 최소 누르는 시간 (초)
+    public float chargeTimeThreshold = 0.7f; // 차지샷으로 인정될 최소 누르는 시간 (초)
     public float chargeProjectileSpeedMultiplier = 1.5f; // 차지샷의 속도 배율
     
     public int normalShotDamage = 2;   // 일반샷 데미지

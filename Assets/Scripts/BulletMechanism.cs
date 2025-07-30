@@ -31,6 +31,17 @@ public class BulletMechanism : MonoBehaviour
             }
         }
 
+          if (collision.gameObject.CompareTag("Player")) // 충돌한 오브젝트가 "Player" 태그를 가지고 있는지 확인
+        {
+            PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(_damageAmount); // 플레이어에게 데미지 적용
+            }
+        }
+
+        Destroy(gameObject); // 충돌 후 발사체 파괴
+
         // 충돌 후 발사체 파괴 (선택 사항)
         Destroy(gameObject); 
     }
@@ -47,6 +58,17 @@ public class BulletMechanism : MonoBehaviour
             {
                 // 설정된 _damageAmount 값을 사용하여 데미지 적용
                 enemyHealth.TakeDamage(_damageAmount);
+            }
+        }
+        Destroy(gameObject);
+
+         // 플레이어에게 데미지 주기 추가
+        if (other.CompareTag("Player")) // 충돌한 오브젝트가 "Player" 태그를 가지고 있는지 확인
+        {
+            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(_damageAmount); // 플레이어에게 데미지 적용
             }
         }
         Destroy(gameObject);
